@@ -75,7 +75,7 @@ class MyApp(Tk):
         
         #Set defafult values for statistics checkboxes
         self.graphCloseness = StringVar()
-        self.graphBetweeness = StringVar()
+        self.graphBetweenness = StringVar()
         self.graphEigen = StringVar()
         self.graphPagerank = StringVar()
         self.graphStrength = StringVar()
@@ -179,8 +179,8 @@ class MyApp(Tk):
         eigenButton.grid(column=1,row=14)
         closenessButton = ttk.Radiobutton(self.graphRadioFrame,text='Closeness',variable=self.graphStatVis,value='Closeness')
         closenessButton.grid(column=0,row=16)
-        betweenessButton = ttk.Radiobutton(self.graphRadioFrame,text='Betweeness',variable=self.graphStatVis,value='Betweeness')
-        betweenessButton.grid(column=1,row=16)
+        betweennessButton = ttk.Radiobutton(self.graphRadioFrame,text='betweenness',variable=self.graphStatVis,value='betweenness')
+        betweennessButton.grid(column=1,row=16)
         pagerankButton = ttk.Radiobutton(self.graphRadioFrame,text='Google Pagerank',variable=self.graphStatVis,value='Pagerank')
         pagerankButton.grid(column=0,row=15)
         strengthButton = ttk.Radiobutton(self.graphRadioFrame,text='Strength',variable=self.graphStatVis,value='Strength')
@@ -291,7 +291,7 @@ class MyApp(Tk):
         for x in range(0,len(self.AH.vs["id"])):
             if self.graphEigen.get() == '1':
                 self.AH.vs[x]["id"] =self.AH.vs[x]["id"]+"\n Eigenvector = "+str(self.AH.vs[x]["eigenvector"])[0:5]
-            if self.graphBetweeness.get() == '1':
+            if self.graphbetweenness.get() == '1':
                 self.AH.vs[x]["id"] =self.AH.vs[x]["id"]+"\n Betweenness = "+str(self.AH.vs[x]["betweenness"])[0:5]
             if self.graphCloseness.get() == '1':
                 self.AH.vs[x]["id"] =self.AH.vs[x]["id"]+"\n Closeness = "+str(self.AH.vs[x]["closeness"])[0:5]
@@ -306,8 +306,8 @@ class MyApp(Tk):
             self.AH.vs["size"] = ig.rescale(self.AH.vs["eigenvector"],(5,30))
         elif self.graphStatVis.get() == 'Closeness':
             self.AH.vs["size"] = ig.rescale(self.AH.vs["closeness"])
-        elif self.graphStatVis.get() == 'Betweeness':
-            self.AH.vs["size"] = ig.rescale(self.AH.vs["betweeness"])
+        elif self.graphStatVis.get() == 'betweenness':
+            self.AH.vs["size"] = ig.rescale(self.AH.vs["betweenness"])
         elif self.graphStatVis.get() == 'Pagerank':
             self.AH.vs["size"] = ig.rescale(self.AH.vs["pagerank"])
         elif self.graphStatVis.get() == 'Strength':
@@ -498,7 +498,7 @@ class MyWindow(ttk.Frame):
         #Checkboxes for Statistics
         self.master.appTopStatistics.add_checkbutton(label='Eigenvector Centraility', variable=self.master.graphEigen, onvalue=1,offvalue=0)
         self.master.appTopStatistics.add_checkbutton(label='Closeness', variable=self.master.graphCloseness, onvalue=1,offvalue=0)
-        self.master.appTopStatistics.add_checkbutton(label='Betweeness', variable=self.master.graphBetweeness, onvalue=1,offvalue=0)
+        self.master.appTopStatistics.add_checkbutton(label='betweenness', variable=self.master.graphbetweenness, onvalue=1,offvalue=0)
         self.master.appTopStatistics.add_checkbutton(label='Google Pagerank', variable=self.master.graphPagerank, onvalue=1,offvalue=0)
         self.master.appTopStatistics.add_checkbutton(label='Strength', variable=self.master.graphStrength, onvalue=1,offvalue=0)
         self.master.appTopStatistics.add_separator()
