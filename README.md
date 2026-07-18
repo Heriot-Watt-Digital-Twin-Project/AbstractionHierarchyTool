@@ -1,4 +1,4 @@
-<h1>Abstraction Heirarchy Tool</h1>
+<h1>Abstraction Hierarchy Tool</h1>
 Software Tool Authors: Joshua Duvnjak (Lead Designer/Programmer), Guy Walker </br>
 
 Description: A program to load excel sheets and output an Abstraction Heirarchy
